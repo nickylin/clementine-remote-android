@@ -22,6 +22,9 @@ import java.util.List;
 
 import com.google.protobuf.ByteString;
 
+import de.qspool.clementineremote.App;
+import de.qspool.clementineremote.R;
+
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -158,7 +161,7 @@ public class MySong {
 	}
 	public Bitmap getArt() {
 		if (art == null)
-			return null;
+			return BitmapFactory.decodeResource(App.mApp.getResources(), R.drawable.nocover);
 		else 
 			return BitmapFactory.decodeByteArray(art, 0, art.length);
 	}
