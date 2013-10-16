@@ -349,6 +349,11 @@ public class ClementineSongDownloader extends
 		// Disconnect at the end
 		mClient.disconnect(new RequestDisconnect());
 		
+		// Start Media indexing
+        String defaultPath = Environment.getExternalStorageDirectory() + "/ClementineMusic";
+        String path = mSharedPref.getString(App.SP_DOWNLOAD_DIR, defaultPath);
+        mContext.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" + path)));
+		
 		return result;
     }
     
