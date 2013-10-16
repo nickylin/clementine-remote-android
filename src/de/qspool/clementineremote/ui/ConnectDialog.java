@@ -39,6 +39,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -346,6 +347,19 @@ public class ConnectDialog extends SherlockActivity {
 		// Do not connect if the activity has finished!
 		if (this.isFinishing())
 			return;
+		
+		// Check if the service is running. If not, then restart it and call
+		// this function later!
+		if (App.mClementineConnection == null) {
+			startBackgroundService();
+			mHandler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					connect();
+				}
+	    	}, 250);
+			return;
+		}
 		
 		// Save the data
 		SharedPreferences.Editor editor = mSharedPref.edit();

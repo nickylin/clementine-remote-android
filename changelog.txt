@@ -1,3 +1,8 @@
+Version 7.1
+  Bugfixes:
+    - Fixed Nullpointer crash when trying to download a song (no song)
+    - Fixed Nullpointer crash when connecting to Clementine
+    
 Version 7
   Features:
     - Display lyrics when clicking albumcover
