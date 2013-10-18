@@ -1,4 +1,6 @@
 Version 7.1
+  Improvements:
+    - Update media library after download
   Bugfixes:
     - Fixed Nullpointer crash when trying to download a song (no song)
     - Fixed Nullpointer crash when connecting to Clementine
